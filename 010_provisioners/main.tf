@@ -99,7 +99,7 @@ resource "aws_instance" "my_server" {
         type     = "ssh"
         user     = "ec2-user"
         host     = "${self.public_ip}"
-        private_key = "${file("~/.ssh/aws_terraform")}"
+        private_key = "${file("")}"
       }
     }
     */
