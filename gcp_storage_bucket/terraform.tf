@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "google" {
-  credentials = "ENCRYPTED"
+  credentials = "encryption.json"
   project     = "terraform-associate-practice"
   region      = "us-central1"
   zone        = "us-central1-c"
