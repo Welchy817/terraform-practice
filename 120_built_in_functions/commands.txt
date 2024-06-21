@@ -1,0 +1,97 @@
+> var.strings
+<<EOT
+ hello world
+
+EOT
+> format(var.strings)
+<<EOT
+ hello world
+
+EOT
+> split(var.strings, " ")
+tolist([
+  " ",
+])
+> split(" ", var.strings)
+tolist([
+  "",
+  "hello",
+  <<-EOT
+  world
+
+  EOT,
+  "",
+])
+> upper(var.strings)
+<<EOT
+ HELLO WORLD
+
+EOT
+> trim(" ", var.strings)
+""
+> trim(var.strings, " ")
+<<EOT
+hello world
+
+EOT
+> trim(var.strings, "\n")
+<<EOT
+ hello world
+
+EOT
+> trim(var.strings, " \n")
+"hello world"
+> replace(var.strings, "world", "bionis")
+<<EOT
+ hello bionis
+
+EOT
+
+> uuid()
+"5ad28d6a-838d-b94b-8b98-245fa024829e"
+> bcrypt(var.strings)
+"$2a$10$qJPMOO6puRPtdS3FkQ0T7OTTQIzIOLavcAcGYuccWG1jaghJ0fEE2"
+> cidrsubnet("10.135.0.0/16", 1, 1)
+"10.135.128.0/17"
+> cidrsubnet("10.135.0.0/16", 0, 1)
+> var.items
+tolist([
+  tostring(null),
+  tostring(null),
+  "",
+  "last",
+])
+> coalesce(var.items)
+tolist([
+  tostring(null),
+  tostring(null),
+  "",
+  "last",
+])
+> coalesce(var.items...)
+"last"
+> var.keychains
+tomap({
+  "goodbye" = "moon"
+  "hello" = "world"
+})
+> keys(var.keychains)
+tolist([
+  "goodbye",
+  "hello",
+])
+> values(var.keychains)
+tolist([
+  "moon",
+  "world",
+])
+> reverse([1,2,3])
+[
+  3,
+  2,
+  1,
+]
+> path.root
+"."
+> abspath(path.root)
+"/home/mwelch/terraform-practice/120_built_in_functions"
