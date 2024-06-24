@@ -1,0 +1,5 @@
+instance_type = "t2.micro"
+server_name = "Apache-Example-Server"
+public_key = "ssh-rsa AAAA..."
+my_ip_with_cidr = "my_own_ip/32"
+vpc_id = "vpc-00000000000000000"
