@@ -19,7 +19,7 @@ provider "aws" {
 }
 
 data "aws_vpc" "main" {
-  id = "vpc-0fac7589b76da39f2"
+  id = ""
 }
 
 resource "aws_instance" "my_server" {
